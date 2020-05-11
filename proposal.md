@@ -1,3 +1,5 @@
+# Proposal
+## Group - The Snowdens
 For our final project we thought it would be a good idea to build a 
 network sniffer/monitor. It would periodically check for unauthorized 
 connections and monitor network traffic to try to detect malware sending 
