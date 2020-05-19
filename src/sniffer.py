@@ -19,7 +19,7 @@ def main() :
         print('\nEthernet Frame:')
         print('Destination: {}, Source: {}, Protocol: {}'.format(destMac, srcMac, ethProto))
 
-        if ethProto == 0 :
+        if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
             print(TAB_1 + 'IPv4 Packet:')
             print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
