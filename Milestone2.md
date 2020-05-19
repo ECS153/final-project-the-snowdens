@@ -1,7 +1,7 @@
 # Milestone 2
 ## Meeting Notes - 5/19/20
 #### What We Did Last Week
-Last week as a group we found a simple keylogger that we will be using to test our packet sniffer with. We also began working on the back end of the packet sniffer so it can detect TCP, UDP, and IMCP connections that are established in the network. 
+Last week as a group we found a simple keylogger that we will be using to test our packet sniffer with. We ended up tossing this one and finding a Linux one instead. We also began working on the back end of the packet sniffer so it can detect TCP, UDP, and IMCP connections that are established in the network. 
 #### What We Plan To Do This Week
 * Create and implement guidelines on what connections we want to flag as malicious
 * Look into creating an interface for the packet sniffer to display the connections on
