@@ -11,3 +11,7 @@ Last week as a group we found a simple keylogger that we will be using to test o
   * On linux, the socket API has certain variables for ports that make it easier to trace connections
 #### Pull Requests
 * 
+
+
+
+https://docs.google.com/document/d/1BZzWY7O2cwzse18eGwPLyvzinudyrf9mBvrLo_y8eEA/edit
