@@ -2,13 +2,62 @@ import socket
 import struct
 import textwrap
 
+TAB_1 = '\t - '
+TAB_2 = '\t\t - '
+TAB_3 = '\t\t\t - '
+TAB_4 = '\t\t\t\t - '
+DTAB_1 = '\t '
+DTAB_2 = '\t\t '
+DTAB_3 = '\t\t\t '
+DTAB_4 = '\t\t\t\t '
+
 def main() :
     conn = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(3))
     while True :
         rawData, addr = conn.recvfrom(65536)
-        destMac, srcMac, proto, data = ethernetFrame(rawData)
+        destMac, srcMac, ethProto, data = ethernetFrame(rawData)
         print('\nEthernet Frame:')
-        print('Destination: {}, Source: {}, Protocol: {}'.format(destMac, srcMac, proto))
+        print('Destination: {}, Source: {}, Protocol: {}'.format(destMac, srcMac, ethProto))
+
+        if ethProto == 0 :
+            (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
+            print(TAB_1 + 'IPv4 Packet:')
+            print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
+            print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
+
+            # ICMP
+            if proto == 1 :
+                (type, code, checksum, data) = icmpPacket(data)
+                print(TAB_1 + 'ICMP Packet:')
+                print(TAB_2 + 'Type: {}, Code: {}, Checksum: {}'.format(type, code, checksum))
+                print(TAB_2 + 'Data:')
+                print(formatMultiLine(DTAB_3, data))
+
+            # TCP
+            elif proto == 6 :
+                (srcPort, destPort, sequence, ack, flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin) = tcpPacket(data)
+                print(TAB_1 + 'TCP Packet:')
+                print(TAB_2 + 'Source Port: {}, Destination Port: {}'.format(srcPort, destPort))
+                print(TAB_2 + 'Sequence: {}, Acknowledgement: {}'.format(sequence, ack))
+                print(TAB_2 + 'Flags:')
+                print(TAB_3 + 'URG: {}, ACK: {}, PSH: {}, RST: {}, SYN: {}, FIN: {}'.format(flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin))
+                print(TAB_2 + 'Data:')
+                print(formatMultiLine(DTAB_3, data))
+
+            # UDP
+            elif proto == 17 :
+                (srcPort, destPort, length, data) = udpPacket(data)
+                print(TAB_1 + 'UDP Packet:')
+                print(TAB_2 + 'Source Port: {}, Destination Port: {}, Length: {}'.format(srcPort, destPort, length))
+
+            # Other
+            else :
+                print(TAB_1 + 'Data:')
+                print(formatMultiLine(DTAB_1, data))
+
+        else :
+            print('Data:')
+            print(formatMultiLine(DTAB_1, data))
 
 # properely formats MAC address
 def getAddr(addr) :
