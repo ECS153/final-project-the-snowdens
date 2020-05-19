@@ -14,4 +14,4 @@ Last week as a group we found a simple keylogger that we will be using to test o
 
 
 #### Design Doc
-https://docs.google.com/document/d/1BZzWY7O2cwzse18eGwPLyvzinudyrf9mBvrLo_y8eEA/edit
+* https://docs.google.com/document/d/1BZzWY7O2cwzse18eGwPLyvzinudyrf9mBvrLo_y8eEA/edit
