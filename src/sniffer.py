@@ -66,7 +66,7 @@ def getAddr(addr) :
 
 # properely formats IPv4 address
 def ipv4(addr) :
-    return '.'.join(mao(str, addr))
+    return '.'.join(map(str, addr))
 
 # unpacks ICMP packet
 def icmpPacket(data) :
