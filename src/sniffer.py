@@ -35,7 +35,7 @@ def main() :
 
             # TCP
             elif proto == 6 :
-                (srcPort, destPort, sequence, ack, flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin) = tcpPacket(data)
+                (srcPort, destPort, sequence, ack, flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin, data) = tcpPacket(data)
                 print(TAB_1 + 'TCP Packet:')
                 print(TAB_2 + 'Source Port: {}, Destination Port: {}'.format(srcPort, destPort))
                 print(TAB_2 + 'Sequence: {}, Acknowledgement: {}'.format(sequence, ack))
