@@ -5,11 +5,8 @@ import textwrap
 TAB_1 = '\t - '
 TAB_2 = '\t\t - '
 TAB_3 = '\t\t\t - '
-TAB_4 = '\t\t\t\t - '
 DTAB_1 = '\t '
-DTAB_2 = '\t\t '
 DTAB_3 = '\t\t\t '
-DTAB_4 = '\t\t\t\t '
 
 def main() :
     conn = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(3))
