@@ -9,8 +9,8 @@ Last week as a group we found a simple keylogger that we will be using to test o
 * Started trying to write the packet sniffer to work with MAC
   * Ran into issues of not being able to easily access different ports in the socket API for MAC
   * On linux, the socket API has certain variables for ports that make it easier to trace connections
-#### Pull Requests
-* 
+#### Commits
+* https://github.com/ECS153/final-project-the-snowdens/commits/master
 #### Member Contributions
 * Jack Retterer - This week I worked on getting a keylogger for both MAC, and Linux systems that we will be using to test the packet sniffer with, as well as use Ubuntu to get the packet sniffer running on the Linux system. I also worked on Design Doc 1.
 * Zack McDowell - This week I worked on attempting to implement the packet sniffer on the MAC system, and then after running into socket API difficulties ended up implementing a packet sniffer on the Linux system, debugging it, and making sure the sniffer showed established connections.
