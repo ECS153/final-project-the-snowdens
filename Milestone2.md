@@ -20,4 +20,4 @@ Last week as a group we found a simple keylogger that we will be using to test o
 #### Design Doc 2
 * https://docs.google.com/document/d/1TVQ59d-EK6Tnd2sOcIQZy7yKwgGNyR952KOUZaCgpJo/edit#
 #### Milestone 2 Video Link
-* 
+* https://www.youtube.com/watch?v=uj8qcmGagY4
