@@ -16,4 +16,4 @@ Last week we continued to work on and research how to track malicious network tr
 #### Design Doc 3
 * https://docs.google.com/document/d/1bMViW1A4sC0igyJZNW2eFiO24VgEC6Bg0DKruNlRt3Y 
 #### Milestone 3 Video Link
-* 
+* https://www.youtube.com/watch?v=4D9UDugUYTE
