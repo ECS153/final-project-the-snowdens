@@ -14,6 +14,6 @@ Last week we continued to work on and research how to track malicious network tr
 * Zack McDowell - 
 * Jack Abukhovski - 
 #### Design Doc 3
-* 
+* https://docs.google.com/document/d/1bMViW1A4sC0igyJZNW2eFiO24VgEC6Bg0DKruNlRt3Y 
 #### Milestone 2 Video Link
 * 
