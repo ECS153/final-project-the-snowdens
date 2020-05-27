@@ -8,7 +8,7 @@ Last week we continued to work on and research how to track malicious network tr
 #### Things We Are Stuck On
 * Hard to create a system scanner and backtracker that would allow us to backtrack malicious network traffic and help find malicious software on the system.
 #### Commits
-* 
+* https://github.com/ECS153/final-project-the-snowdens/commits/master
 #### Member Contributions
 * Jack Retterer - 
 * Zack McDowell - 
