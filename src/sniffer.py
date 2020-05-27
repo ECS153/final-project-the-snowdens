@@ -1,6 +1,9 @@
 import socket
 import struct
 import textwrap
+import time
+import requests
+import re
 
 TAB_1 = '\t - '
 TAB_2 = '\t\t - '
@@ -15,6 +18,14 @@ def main() :
         destMac, srcMac, ethProto, data = ethernetFrame(rawData)
         print('\nEthernet Frame:')
         print('Destination: {}, Source: {}, Protocol: {}'.format(destMac, srcMac, ethProto))
+        blacklistedIPs = 'https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt'
+        ip_list = requests.get(blacklistedIPs)
+        for ip in ip_list.iter_lines():
+            ip_formatted = ip.split("\t",1)[0]
+            if ip_formatted == destMac or ip_formatted == srcMac:
+                time.sleep(2)
+                print()
+
 
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
