@@ -24,48 +24,48 @@ def main() :
             ip_formatted = ip.split("\t",1)[0]
             if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
                 time.sleep(2)
-                print()
+                print("Detected a potentiall malicious website.")
 
 
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
-            print(TAB_1 + 'IPv4 Packet:')
-            print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
-            print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
+            #print(TAB_1 + 'IPv4 Packet:')
+            #print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
+            #print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
 
             # ICMP
             if proto == 1 :
                 (type, code, checksum, data) = icmpPacket(data)
-                print(TAB_1 + 'ICMP Packet:')
-                print(TAB_2 + 'Type: {}, Code: {}, Checksum: {}'.format(type, code, checksum))
-                print(TAB_2 + 'Data:')
-                print(formatMultiLine(DTAB_3, data))
+                #print(TAB_1 + 'ICMP Packet:')
+                #print(TAB_2 + 'Type: {}, Code: {}, Checksum: {}'.format(type, code, checksum))
+                #print(TAB_2 + 'Data:')
+                #print(formatMultiLine(DTAB_3, data))
 
             # TCP
             elif proto == 6 :
                 (srcPort, destPort, sequence, ack, flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin, data) = tcpPacket(data)
-                print(TAB_1 + 'TCP Packet:')
-                print(TAB_2 + 'Source Port: {}, Destination Port: {}'.format(srcPort, destPort))
-                print(TAB_2 + 'Sequence: {}, Acknowledgement: {}'.format(sequence, ack))
-                print(TAB_2 + 'Flags:')
-                print(TAB_3 + 'URG: {}, ACK: {}, PSH: {}, RST: {}, SYN: {}, FIN: {}'.format(flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin))
-                print(TAB_2 + 'Data:')
-                print(formatMultiLine(DTAB_3, data))
+                #print(TAB_1 + 'TCP Packet:')
+                #print(TAB_2 + 'Source Port: {}, Destination Port: {}'.format(srcPort, destPort))
+                #print(TAB_2 + 'Sequence: {}, Acknowledgement: {}'.format(sequence, ack))
+                #print(TAB_2 + 'Flags:')
+                #print(TAB_3 + 'URG: {}, ACK: {}, PSH: {}, RST: {}, SYN: {}, FIN: {}'.format(flagUrg, flagAck, flagPsh, flagRst, flagSyn, flagFin))
+                #print(TAB_2 + 'Data:')
+                #print(formatMultiLine(DTAB_3, data))
 
             # UDP
             elif proto == 17 :
                 (srcPort, destPort, length, data) = udpPacket(data)
-                print(TAB_1 + 'UDP Packet:')
-                print(TAB_2 + 'Source Port: {}, Destination Port: {}, Length: {}'.format(srcPort, destPort, length))
+                #print(TAB_1 + 'UDP Packet:')
+                #print(TAB_2 + 'Source Port: {}, Destination Port: {}, Length: {}'.format(srcPort, destPort, length))
 
             # Other
             else :
-                print(TAB_1 + 'Data:')
-                print(formatMultiLine(DTAB_1, data))
+                #print(TAB_1 + 'Data:')
+                #print(formatMultiLine(DTAB_1, data))
 
         else :
-            print('Data:')
-            print(formatMultiLine(DTAB_1, data))
+            #print('Data:')
+            #print(formatMultiLine(DTAB_1, data))
 
 # properely formats MAC address
 def getAddr(addr) :
