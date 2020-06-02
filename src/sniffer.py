@@ -24,7 +24,7 @@ def main() :
             ip_formatted = ip.split("\t",1)[0]
             if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
                 time.sleep(2)
-                print("Detected a potentiall malicious website.")
+                print('Detected a potentiall malicious website.')
 
 
         if ethProto == 8 :
@@ -60,10 +60,12 @@ def main() :
 
             # Other
             else :
+                print(' ')
                 #print(TAB_1 + 'Data:')
                 #print(formatMultiLine(DTAB_1, data))
 
         else :
+            print(' ')
             #print('Data:')
             #print(formatMultiLine(DTAB_1, data))
 
