@@ -24,12 +24,12 @@ def main() :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
             #print(TAB_1 + 'IPv4 Packet:')
             #print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
-            print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
+            #print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
 
-            if src.split('.')[0] == '172' or src.split('.')[0] == '216' :
+            if src.split('.')[0] == '172' or src.split('.')[0] == '216' or src.split('.')[0] == '127':
                 print('Detected a potentiall malicious website at this ip: {}'.format(src))
 
-            if target.split('.')[0] == '172' or target.split('.')[0] == '216' :
+            if target.split('.')[0] == '172' or target.split('.')[0] == '216' or target.split('.')[0] == '127':
                 print('Detected a potentiall malicious website at this ip: {}'.format(target))
 
             ip_list = requests.get(blacklistedIPs)
