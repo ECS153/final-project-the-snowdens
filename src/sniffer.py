@@ -29,9 +29,11 @@ def main() :
 
             if src.split('.')[0] == '172' or src.split('.')[0] == '216' or src.split('.')[0] == '127':
                 print('Detected a potentiall malicious website at this ip: {}'.format(src))
+                pymsgbox.alert('Detected a potentiall malicious website at this ip: {}'.format(src), 'WARNING')
 
             if target.split('.')[0] == '172' or target.split('.')[0] == '216' or target.split('.')[0] == '127':
                 print('Detected a potentiall malicious website at this ip: {}'.format(target))
+                pymsgbox.alert('Detected a potentiall malicious website at this ip: {}'.format(target), 'WARNING')
 
             ip_list = requests.get(blacklistedIPs)
             for ip in ip_list.iter_lines():
@@ -41,8 +43,8 @@ def main() :
                 ip_formatted = ipStr.split()[0]
                 if ip_formatted == src or ip_formatted == target :
                     time.sleep(2)
+                    print('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted))
                     pymsgbox.alert('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted), 'WARNING')
-                    #print('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted))
 
             # ICMP
             if proto == 1 :
