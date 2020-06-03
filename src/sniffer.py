@@ -24,11 +24,11 @@ def main() :
             if (ip[0] == "#"):
                 continue
             ipStr = ip.decode('utf-8')
-            #ip_formatted = ip.split("\t",1)[0]
+            ip_formatted = ip.split()[0]
             #if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
             #    time.sleep(2)
         #        print('Detected a potentiall malicious website.')
-            print(ipStr)
+            print(ip_formatted)
 
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
