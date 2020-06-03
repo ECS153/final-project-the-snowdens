@@ -1,3 +1,5 @@
+Overview:
+
 This project is a network sniffer that detects and notifies the user when
 malicious content could be being sent from their device to the internet.
 We elected to use Linux out of ease and file access ability. Also because we
@@ -25,6 +27,7 @@ which helps to prevent further malicious software from being installed onto
 the user's system.
 
 Information about Code:
+
 The main portion of the network analyzers code is a set of functions that
 utilizes the Socket API in order to analyze and unpack all different types of
 packets. This API establishes connections to ports and this allows the analyzer
