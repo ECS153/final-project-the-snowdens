@@ -4,6 +4,7 @@ import textwrap
 import time
 import requests
 import re
+import pymsgbox
 
 TAB_1 = '\t - '
 TAB_2 = '\t\t - '
@@ -40,7 +41,8 @@ def main() :
                 ip_formatted = ipStr.split()[0]
                 if ip_formatted == src or ip_formatted == target :
                     time.sleep(2)
-                    print('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted))
+                    pymsgbox.alert('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted), 'WARNING')
+                    #print('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted))
 
             # ICMP
             if proto == 1 :
