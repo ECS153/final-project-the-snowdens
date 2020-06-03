@@ -24,7 +24,7 @@ def main() :
             if (ip[0] == "#"):
                 continue
             ipStr = ip.decode('utf-8')
-            ip_formatted = ip.split()[0]
+            ip_formatted = ipStr.split()[0]
             #if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
             #    time.sleep(2)
         #        print('Detected a potentiall malicious website.')
