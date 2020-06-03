@@ -19,6 +19,10 @@ def main() :
         print('\nEthernet Frame:')
         print('Destination: {}, Source: {}, Protocol: {}'.format(destMac, srcMac, ethProto))
         blacklistedIPs = 'https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt'
+
+        print(destMac)
+        print(srcMac)
+
         ip_list = requests.get(blacklistedIPs)
         for ip in ip_list.iter_lines():
             if (ip[0] == "#"):
@@ -27,8 +31,8 @@ def main() :
             ip_formatted = ipStr.split()[0]
             #if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
             #    time.sleep(2)
+        #        print(ip_formatted)
         #        print('Detected a potentiall malicious website.')
-            print(ip_formatted)
 
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
