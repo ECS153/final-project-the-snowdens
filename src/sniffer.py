@@ -20,25 +20,21 @@ def main() :
         print('Destination: {}, Source: {}, Protocol: {}'.format(destMac, srcMac, ethProto))
         blacklistedIPs = 'https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt'
 
-        print(destMac)
-        print(srcMac)
-
-        ip_list = requests.get(blacklistedIPs)
-        for ip in ip_list.iter_lines():
-            if (ip[0] == "#"):
-                continue
-            ipStr = ip.decode('utf-8')
-            ip_formatted = ipStr.split()[0]
-            #if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
-            #    time.sleep(2)
-        #        print(ip_formatted)
-        #        print('Detected a potentiall malicious website.')
-
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
-            print(TAB_1 + 'IPv4 Packet:')
-            print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
-            print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
+            #print(TAB_1 + 'IPv4 Packet:')
+            #print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
+            #print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
+
+            ip_list = requests.get(blacklistedIPs)
+            for ip in ip_list.iter_lines():
+                if (ip[0] == "#"):
+                    continue
+                ipStr = ip.decode('utf-8')
+                ip_formatted = ipStr.split()[0]
+                if ip_formatted == src or ip_formatted == target or src == "172.217.17.142" or target == "172.217.17.142":
+                    time.sleep(2)
+                    print('Detected a potentiall malicious website.')
 
             # ICMP
             if proto == 1 :
