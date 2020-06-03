@@ -22,7 +22,7 @@ def main() :
         ip_list = requests.get(blacklistedIPs)
         for ip in ip_list.iter_lines():
             ip_formatted = ip.split("\t",1)[0]
-            if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
+            if ip_formatted == destMac : #or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
                 time.sleep(2)
                 print('Detected a potentiall malicious website.')
 
