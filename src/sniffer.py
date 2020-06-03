@@ -26,15 +26,21 @@ def main() :
             print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
             print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
 
+            if src.split('.')[0] == '172' or src.split('.')[0] == '216' :
+                print('Detected a potentiall malicious website at this ip: {}'.format(src))
+
+            if target.split('.')[0] == '172' or target.split('.')[0] == '216' :
+                print('Detected a potentiall malicious website at this ip: {}'.format(target))
+
             ip_list = requests.get(blacklistedIPs)
             for ip in ip_list.iter_lines():
                 if (ip[0] == "#"):
                     continue
                 ipStr = ip.decode('utf-8')
                 ip_formatted = ipStr.split()[0]
-                if ip_formatted == src or ip_formatted == target or src == "172.217.17.142" or target == "172.217.17.142":
+                if ip_formatted == src or ip_formatted == target :
                     time.sleep(2)
-                    print('Detected a potentiall malicious website.')
+                    print('Detected a potentiall malicious website at this ip: {}'.format(ip_formatted))
 
             # ICMP
             if proto == 1 :
