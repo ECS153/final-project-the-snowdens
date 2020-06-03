@@ -21,11 +21,13 @@ def main() :
         blacklistedIPs = 'https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt'
         ip_list = requests.get(blacklistedIPs)
         for ip in ip_list.iter_lines():
+            if (ip[0] == "#"):
+                continue
             ip_formatted = ip.split("\t",1)[0]
             if ip_formatted == destMac or ip_formatted == srcMac or str(destMac) == "172.217.17.142" or str(srcMac) == "172.217.17.142":
                 time.sleep(2)
                 print('Detected a potentiall malicious website.')
-
+        print("Website checked.")
 
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
