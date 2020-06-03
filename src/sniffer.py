@@ -36,9 +36,9 @@ def main() :
 
         if ethProto == 8 :
             (version, headerLength, ttl, proto, src, target, data) = ipv4Packet(data)
-            #print(TAB_1 + 'IPv4 Packet:')
-            #print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
-            #print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
+            print(TAB_1 + 'IPv4 Packet:')
+            print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {}'.format(version, headerLength, ttl))
+            print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(proto, src, target))
 
             # ICMP
             if proto == 1 :
